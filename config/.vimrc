@@ -59,6 +59,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'puremourning/vimspector'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'tmhedberg/SimpylFold'
+Plug 'metakirby5/codi.vim'
+Plug 'stsewd/fzf-checkout.vim'
 
 call plug#end()
 
