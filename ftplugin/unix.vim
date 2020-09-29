@@ -1,0 +1,9 @@
+setlocal tabstop=2
+setlocal softtabstop=2
+setlocal shiftwidth=2
+setlocal expandtab
+setlocal foldmethod=manual
+set termguicolors
+set background=dark
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'

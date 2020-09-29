@@ -1,0 +1,2 @@
+PATH=$PATH:/home/sybox/.local/bin
+PATH=$PATH:/home/sybox/go/bin
