@@ -1,9 +1,4 @@
-setlocal tabstop=2
-setlocal softtabstop=2
-setlocal shiftwidth=2
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
 setlocal expandtab
-setlocal foldmethod=indent
-set termguicolors
-set background=dark
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'

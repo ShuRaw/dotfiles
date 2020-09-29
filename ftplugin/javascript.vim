@@ -5,7 +5,3 @@ setlocal expandtab
 setlocal foldmethod=syntax
 setlocal autoindent
 setlocal smartindent
-set termguicolors
-set background=dark
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
