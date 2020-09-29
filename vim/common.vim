@@ -36,7 +36,7 @@ set splitbelow
 set splitright
 
 " This defines the location of spell files
-set spellfile=$HOME/vim/Spell/en.utf-8.add
+set spellfile=$HOME/dotfiles/Spell/en.utf-8.add
 
 " This opens the Gdiff window vertically
 set diffopt+=vertical
