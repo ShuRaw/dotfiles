@@ -1,9 +1,12 @@
 import glob
 import os
+import shutil
 
 USER = os.environ.get('USER')
 HOME= f'/home/{USER}'
 VIM_HOME = f'{HOME}/.vim'
+AFTER_HOME = f'{VIM_HOME}/after'
+SNIP_HOME = f'{VIM_HOME}/UltiSnips'
 
 for filepath in glob.iglob(f'{HOME}/dotfiles/config/.*'):
     filename = filepath.split('/')[-1]
@@ -15,5 +18,11 @@ for filepath in glob.iglob(f'{HOME}/dotfiles/config/.*'):
     except Exception as exception:
         print(exception)
 
-os.mkdir(f'{VIM_HOME}/after')
-os.symlink(f'{HOME}/dotfiles/ftplugin', f'{VIM_HOME}/after/ftplugin')
+if os.path.exists(AFTER_HOME):
+    shutil.rmtree(AFTER_HOME)
+os.mkdir(AFTER_HOME)
+os.symlink(f'{HOME}/dotfiles/ftplugin', f'{AFTER_HOME}/ftplugin')
+
+if os.path.exists(SNIP_HOME):
+    shutil.rmtree(SNIP_HOME)
+os.symlink(f'{HOME}/dotfiles/UltiSnips', SNIP_HOME)
