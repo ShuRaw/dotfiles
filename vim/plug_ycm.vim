@@ -5,7 +5,7 @@ let g:ycm_semantic_triggers['typescript'] = ['.']
 let g:ycm_semantic_triggers['vue'] = ['.']
 let g:ycm_semantic_triggers['python'] = ['.']
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>gf :YcmCompleter GoToDefinition<CR>
 
 :py3 << EOF
 import os
