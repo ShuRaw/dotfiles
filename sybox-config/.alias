@@ -10,3 +10,4 @@ alias kafka='docker run --rm -d --name kafka -p 2181:2181 -p 9092:9092 --env ADV
 alias kafkad='docker stop kafka'
 alias redisd='docker stop redis'
 alias redis='docker run --rm -d --name redis -p 6379:6379 -v ~/Data/redis:/data redislabs/rejson'
+alias dual='xrandr --output HDMI-1-2 --mode 1920x1080 --rate 144.0 --auto --right-of eDP-1-1'

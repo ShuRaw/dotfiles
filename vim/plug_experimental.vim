@@ -1,5 +1,5 @@
 " SimplyFold
-let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_docstring_preview = 0
 
 " PyDocstring
 nmap <silent> <C-_> <Plug>(pydocstring)
@@ -10,4 +10,3 @@ let $FZF_DEFAULT_OPTS='--reverse'
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
 nnoremap <silent> <Leader>f :Files<CR>
 noremap <leader>gc :GCheckout<CR>
-
