@@ -61,6 +61,7 @@ Plug 'heavenshell/vim-pydocstring'
 Plug 'tmhedberg/SimpylFold'
 Plug 'metakirby5/codi.vim'
 Plug 'stsewd/fzf-checkout.vim'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 

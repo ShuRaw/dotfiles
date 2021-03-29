@@ -1,11 +1,10 @@
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['xo'],
 \   'python': ['pylint', 'flake8']
 \}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier_eslint', 'importjs'],
-\   'typescript': ['eslint'],
+\   'javascript': ['xo'],
 \   'vue': ['prettier'],
 \   'css': ['stylelint'],
 \   'python': ['add_blank_lines_for_python_control_statements', 'autopep8', 'isort', 'yapf'],

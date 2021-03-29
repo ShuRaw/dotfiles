@@ -42,10 +42,10 @@ set spellfile=$HOME/dotfiles/Spell/en.utf-8.add
 set diffopt+=vertical
 
 " For Views
-augroup viewgroup
-  " autocmd BufWinLeave *.* mkview!
-  autocmd BufWinEnter *.* silent loadview
-augroup END
+" augroup viewgroup
+"   " autocmd BufWinLeave *.* mkview!
+"   autocmd BufWinEnter *.* silent loadview
+" augroup END
 
 set mouse=a
 
