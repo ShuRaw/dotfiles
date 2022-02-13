@@ -1,4 +1,4 @@
-let g:coc_global_extensions = ['coc-cssmodules', 'coc-html', 'coc-html-css-support', 'coc-just-complete', 'coc-markdownlint', 'coc-fzf-preview', 'coc-spell-checker', 'coc-tsserver', 'coc-json', 'coc-git', 'coc-css', 'coc-explorer', 'coc-pyright', 'coc-vimlsp', 'coc-emmet', 'coc-pairs', 'coc-snippets']
+let g:coc_global_extensions = ['coc-cssmodules', 'coc-html', 'coc-html-css-support', 'coc-just-complete', 'coc-markdownlint', 'coc-fzf-preview', 'coc-spell-checker', 'coc-tsserver', 'coc-json', 'coc-css', 'coc-explorer', 'coc-pyright', 'coc-vimlsp', 'coc-emmet', 'coc-pairs', 'coc-snippets']
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -138,6 +138,8 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
 
 source ~/dotfiles/nvim/coc_explorer.vim
 source ~/dotfiles/nvim/coc_spell_checker.vim

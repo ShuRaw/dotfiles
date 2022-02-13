@@ -57,3 +57,4 @@ let g:onedark_terminal_italics=1
 colorscheme onedark
 
 autocmd FileType scss setl iskeyword+=@-@
+let g:python3_host_prog="~/dotfiles/.env/bin/python3"
