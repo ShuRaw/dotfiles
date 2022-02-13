@@ -1,25 +1,33 @@
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Code compeltion and language server + snippets + file explorer
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Handle git operations
+Plug 'tpope/vim-fugitive'
+
+" Handle search
+Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'junegunn/fzf.vim'
+Plug 'nelstrom/vim-visual-star-search'
 
-Plug 'sheerun/vim-polyglot'
-
+" Handle status line
 Plug 'vim-airline/vim-airline'
+
+" Handle themes and visuals
+Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
 
+" Handle navigation
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 
-Plug 'ryanoasis/vim-devicons'
-Plug 'nelstrom/vim-visual-star-search'
-
+" Handle notes and markdown
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}

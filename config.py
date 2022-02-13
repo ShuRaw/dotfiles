@@ -9,7 +9,7 @@ AFTER_HOME = f'{VIM_HOME}/after'
 SNIP_HOME = f'{VIM_HOME}/UltiSnips'
 
 for filepath in glob.iglob(f'{HOME}/dotfiles/config/.*'):
-   filename = filepath.split('/')[-1]
+    filename = filepath.split('/')[-1]
     try:
         dotfile = f'{HOME}/{filename}'
 
