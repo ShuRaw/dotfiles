@@ -37,6 +37,11 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 " Handle treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Handle LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
+
 call plug#end()
 
 source ~/dotfiles/nvim/defaults.vim
@@ -44,3 +49,5 @@ source ~/dotfiles/nvim/airline.vim
 source ~/dotfiles/nvim/indent_guides.vim
 source ~/dotfiles/nvim/vim_wiki.vim
 source ~/dotfiles/nvim/vim_telescope.vim
+source ~/dotfiles/nvim/vim_treesitter.vim
+source ~/dotfiles/nvim/vim_lsp.vim
