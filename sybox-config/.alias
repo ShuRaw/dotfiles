@@ -1,6 +1,7 @@
 alias ls='ls --color=auto'
 alias u=ultralist
 alias mux=tmuxinator
+alias vim=nvim
 alias del='~/dotfiles/sybox-config/del'
 alias up='source ~/.zshrc'
 alias zshrc='$EDITOR ~/.zshrc'
@@ -13,4 +14,3 @@ alias redis='docker run --rm -d --name redis -p 6379:6379 -v ~/Data/redis:/data 
 alias dual='xrandr --output HDMI-1-2 --mode 1920x1080 --rate 144.0 --auto --left-of eDP-1-1'
 alias snap='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 alias setuppy='pip install pylint neovim jedi black'
-alias vim='nvim'

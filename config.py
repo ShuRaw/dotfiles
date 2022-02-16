@@ -10,6 +10,7 @@ VIM_CONFIG = f"{VIM_HOME}/init.vim"
 COC_HOME = f"{CONFIG}/coc"
 AFTER_HOME = f"{VIM_HOME}/after"
 SNIP_HOME = f"{COC_HOME}/ultisnips"
+LUA_HOME = f"{VIM_HOME}/lua"
 IS_TEST = True
 
 
@@ -59,6 +60,11 @@ for filepath in glob.iglob(f"{HOME}/dotfiles/config/*"):
     except Exception as exception:
         print(exception)
 
+if os.path.exists(VIM_CONFIG):
+    os.remove(VIM_CONFIG)
+print("Creating file: init.vim")
+os.symlink(f"{HOME}/dotfiles/config/init.vim", VIM_CONFIG)
+
 if os.path.exists(AFTER_HOME):
     shutil.rmtree(AFTER_HOME)
 print("Creating folder: ftplugin")
@@ -70,7 +76,7 @@ if os.path.exists(SNIP_HOME):
 print("Creating folder: ultisnips")
 os.symlink(f"{HOME}/dotfiles/ultisnips", SNIP_HOME)
 
-if os.path.exists(f"{VIM_CONFIG}"):
-    os.remove(VIM_CONFIG)
-print("Creating file: init.vim")
-os.symlink(f"{HOME}/dotfiles/config/init.vim", VIM_CONFIG)
+if os.path.exists(LUA_HOME):
+    os.remove(LUA_HOME)
+print("Creating folder: lua")
+os.symlink(f"{HOME}/dotfiles/lua", LUA_HOME)
