@@ -38,6 +38,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'fannheyward/telescope-coc.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 " Handle treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
