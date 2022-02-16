@@ -7,9 +7,8 @@ HOME = f"/home/{USER}"
 CONFIG = f"{HOME}/.config"
 VIM_HOME = f"{CONFIG}/nvim"
 VIM_CONFIG = f"{VIM_HOME}/init.vim"
-COC_HOME = f"{CONFIG}/coc"
 AFTER_HOME = f"{VIM_HOME}/after"
-SNIP_HOME = f"{COC_HOME}/ultisnips"
+# SNIP_HOME = f"{COC_HOME}/ultisnips"
 LUA_HOME = f"{VIM_HOME}/lua"
 IS_TEST = True
 
@@ -71,10 +70,10 @@ print("Creating folder: ftplugin")
 os.mkdir(AFTER_HOME)
 os.symlink(f"{HOME}/dotfiles/ftplugin", f"{AFTER_HOME}/ftplugin")
 
-if os.path.exists(SNIP_HOME):
-    shutil.rmtree(SNIP_HOME)
-print("Creating folder: ultisnips")
-os.symlink(f"{HOME}/dotfiles/ultisnips", SNIP_HOME)
+# if os.path.exists(SNIP_HOME):
+#     shutil.rmtree(SNIP_HOME)
+# print("Creating folder: ultisnips")
+# os.symlink(f"{HOME}/dotfiles/ultisnips", SNIP_HOME)
 
 if os.path.exists(LUA_HOME):
     os.remove(LUA_HOME)
