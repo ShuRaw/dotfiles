@@ -41,7 +41,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 
-
 call plug#end()
 
 source ~/dotfiles/nvim/defaults.vim

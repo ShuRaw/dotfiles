@@ -8,6 +8,9 @@ nnoremap gW :lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap gr :lua vim.lsp.buf.references()<CR>
 nnoremap gt :lua vim.lsp.buf.type_definition()<CR>
 nnoremap K :lua vim.lsp.buf.hover()<CR>
-nnoremap <c-d> :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>af :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>rn :lua vim.lsp.buf.rename()<CR>
+nnoremap <space>s :lua vim.lsp.buf.signature_help()<CR>
+nnoremap <space>a :Telescope lsp_code_actions<CR>
+nnoremap <space>r :lua vim.lsp.buf.rename()<CR>
+nnoremap <space>dj :lua vim.diagnostics.goto_next()<CR>
+nnoremap <space>dk :lua vim.diagnostics.goto_prev()<CR>
+nnoremap <space>dl :Telescope diagnostics<CR>
