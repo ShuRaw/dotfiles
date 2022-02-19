@@ -1,18 +1,12 @@
 -- local action_state = require('telescope.actions.state')
-require('telescope').setup {
+local telescope = require('telescope')
+telescope.load_extension('fzf')
+telescope.load_extension('file_browser')
+
+telescope.setup {
   defaults = {
-    -- prompt_prefix = "$ ",
-    -- mappings = {
-    --   i = {
-    --     ["<c-g>"] = function()
-    --       print(vim.inspect(action_state.get_selected_entry()))
-    --     end
-    --   }
-    -- }
   }
 }
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('file_browser')
 
 local custom_mappings = { }
 custom_mappings.cur_buff = function()
@@ -22,7 +16,6 @@ custom_mappings.cur_buff = function()
       prompt_position="top"
     }
   }
-
   require('telescope.builtin').current_buffer_fuzzy_find(opts)
 end
 

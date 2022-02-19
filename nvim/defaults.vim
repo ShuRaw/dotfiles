@@ -43,7 +43,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>v :vs<CR>
 nnoremap <leader>s :sp<CR>
-nnoremap <c-t> <c-w>T
+" nnoremap <c-t> <c-w>T
 nnoremap <left> <c-w><
 nnoremap <right> <c-w>>
 nnoremap <up> <c-w>+
