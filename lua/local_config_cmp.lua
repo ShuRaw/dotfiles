@@ -1,6 +1,10 @@
 local cmp = require("cmp")
+
 cmp.setup(
   {
+    view = {
+      entries = "custom" -- can be "custom", "wildmenu" or "native"
+    },
     snippet = {
       expand = function(args)
         require("luasnip").lsp_expand(args.body)
@@ -21,6 +25,7 @@ cmp.setup(
     },
     sources = cmp.config.sources(
       {
+        {name = "nvim_lua"},
         {name = "nvim_lsp"},
         {name = "path", max_item_count = 3},
         {name = "luasnip", max_item_count = 3},
@@ -51,6 +56,15 @@ cmp.setup.filetype(
 )
 
 cmp.setup.cmdline(
+  "/",
+  {
+    sources = {
+      {name = "buffer"}
+    }
+  }
+)
+
+cmp.setup.cmdline(
   ":",
   {
     sources = cmp.config.sources(
@@ -63,4 +77,3 @@ cmp.setup.cmdline(
     )
   }
 )
-

@@ -8,9 +8,8 @@ CONFIG = f"{HOME}/.config"
 VIM_HOME = f"{CONFIG}/nvim"
 VIM_CONFIG = f"{VIM_HOME}/init.vim"
 AFTER_HOME = f"{VIM_HOME}/after"
-# SNIP_HOME = f"{COC_HOME}/ultisnips"
 LUA_HOME = f"{VIM_HOME}/lua"
-IS_TEST = True
+IS_TEST = False
 
 
 def mock_symlink(file, link):
