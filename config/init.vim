@@ -58,6 +58,9 @@ Plug 'saadparwaiz1/cmp_luasnip'
 " Handle formatting
 Plug 'mhartington/formatter.nvim'
 
+" Handle comments
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
 
 source ~/dotfiles/nvim/defaults.vim
@@ -69,3 +72,4 @@ source ~/dotfiles/nvim/vim_treesitter.vim
 source ~/dotfiles/nvim/vim_lsp.vim
 source ~/dotfiles/nvim/vim_cmp.vim
 source ~/dotfiles/nvim/vim_formatter.vim
+source ~/dotfiles/nvim/vim_comment.vim
