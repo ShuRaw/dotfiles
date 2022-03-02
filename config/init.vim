@@ -7,7 +7,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'nelstrom/vim-visual-star-search'
 
 " Handle status line
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kdheepak/tabline.nvim'
 
 " Handle themes and visuals
 Plug 'joshdick/onedark.vim'
@@ -64,7 +65,7 @@ Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
 
 source ~/dotfiles/nvim/defaults.vim
-source ~/dotfiles/nvim/airline.vim
+source ~/dotfiles/nvim/statusline.vim
 source ~/dotfiles/nvim/indent_guides.vim
 source ~/dotfiles/nvim/vim_wiki.vim
 source ~/dotfiles/nvim/vim_telescope.vim
