@@ -1,14 +1,14 @@
 local execute = vim.api.nvim_command
-local autocmd = vim.api.nvim_create_autocmd
 local g = require("so.globals")
 
 execute("packadd packer.nvim")
-autocmd(
-  "BufWritePost",
-  {
-    pattern = "plugins.lua",
-    command = "source <afile> | PackerCompile"
-  }
+vim.cmd(
+  [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]]
 )
 
 return require("packer").startup(
@@ -41,7 +41,6 @@ return require("packer").startup(
     use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
-      requires = {"p00f/nvim-ts-rainbow"},
       config = g.mcon("treesitter", false, "nvim-", ".configs")
     }
 
