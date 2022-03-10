@@ -13,7 +13,9 @@ vim.cmd(
 
 return require("packer").startup(
   function(use)
-    use "wbthomason/packer.nvim"
+    use {"wbthomason/packer.nvim", config = g.mcon("packer", true) }
+    use "nvim-lua/popup.nvim"
+
     -- Very useful vim plugins
     use "nelstrom/vim-visual-star-search"
     -- Git and repeat stuff

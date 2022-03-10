@@ -25,3 +25,9 @@ g.nmap("<down>", "<c-w>-")
 
 -- Easy closing all files
 g.nmap("<space>o", "<cmd>only<CR>")
+
+g.nmap("<space>bh", "<cmd>bnext<CR>")
+g.nmap("<space>bl", "<cmd>bprevious<CR>")
+
+g.vmap(">", ">gv")
+g.vmap("<", "<gv")

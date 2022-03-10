@@ -22,6 +22,23 @@ if ls_ok then
             rep(1)
           }
         )
+      ),
+      s(
+        "preq",
+        fmt(
+          [[
+local status_ok, {} = pcall(require, "{}")
+if not status_ok then
+  return
+end
+{}
+]],
+          {
+            i(1, "function_name"),
+            rep(1),
+            i(0)
+          }
+        )
       )
     }
   }
