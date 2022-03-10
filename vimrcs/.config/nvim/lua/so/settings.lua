@@ -44,6 +44,5 @@ set.scrolloff = 8 -- is one of my fav
 set.sidescrolloff = 8
 set.shortmess:append "c"
 set.diffopt:append "iwhite"
-
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
+set.whichwrap:append "<,>,[,],h,l"
+set.iskeyword:append "-"
