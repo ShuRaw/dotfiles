@@ -1,4 +1,8 @@
-local ok, plug = pcall(require, "onedark")
+local status_ok, onedark = pcall(require, "onedark")
+if not status_ok then
+  return
+end
+
 local opts = {}
 
 opts.style = "darker" -- Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
@@ -13,7 +17,5 @@ opts.diagnostics = {
   background = true -- use background color for virtual text
 }
 
-if ok then
-  plug.setup(opts)
-  plug.load()
-end
+onedark.setup(opts)
+onedark.load()
