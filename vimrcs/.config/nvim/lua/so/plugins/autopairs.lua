@@ -11,11 +11,12 @@ if cmp_ok then
   local cmp_autopairs = require("nvim-autopairs.completion.cmp")
   cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({map_char = {tex = ""}}))
 end
+
 autopairs.setup(
   {
     disable_filetype = {"TelescopePrompt"},
     check_ts = true,
-    enable_check_bracket_line = false,
+    enable_check_bracket_line = true,
     ts_config = {
       lua = {"string"},
       javascript = {"template_string"},
@@ -27,6 +28,6 @@ autopairs.setup(
 autopairs.add_rules(
   {
     Rule("%", "%", "lua"):with_pair(ts_conds.is_ts_node({"string", "comment"})),
-    Rule("$", "$", "lua"):with_pair(ts_conds.is_not_ts_node({"function"}))
+    Rule("$", "$", "lua"):with_pair(ts_conds.is_not_ts_node({"function", "string"}))
   }
 )

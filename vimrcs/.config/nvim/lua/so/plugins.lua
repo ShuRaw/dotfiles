@@ -43,9 +43,10 @@ return require("packer").startup(
       use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
-        requires = {"p00f/nvim-ts-rainbow"},
+        requires = {"p00f/nvim-ts-rainbow", "windwp/nvim-ts-autotag"},
         config = g.mcon("treesitter", false, "nvim-", ".configs")
       }
+      use {"folke/twilight.nvim", config = g.mcon("twilight")}
 
       -- LSP related setup
       use {"williamboman/nvim-lsp-installer", requires = {"neovim/nvim-lspconfig"}, config = g.mcon("lsp", true)}
@@ -81,6 +82,7 @@ return require("packer").startup(
 
       -- Theme
       use {"navarasu/onedark.nvim", config = g.mcon("onedark", true)}
+      use {"norcalli/nvim-colorizer.lua", config = g.mcon("colorizer")}
     end,
     config = {
       display = {

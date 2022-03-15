@@ -16,6 +16,9 @@ opts.rainbow = {
   extended_mode = true,
   max_file_lines = nil
 }
+opts.autotag = {
+  enable = true
+}
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
