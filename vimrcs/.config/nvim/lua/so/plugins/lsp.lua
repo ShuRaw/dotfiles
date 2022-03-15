@@ -34,7 +34,7 @@ local on_attach = function(_, bufnr)
   g.nbmap(bufnr, "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
   g.nbmap(bufnr, "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
   g.nbmap(bufnr, "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-  g.nbmap(bufnr, "<space>a", "<cmd>Telescope lsp_code_actions<CR>")
+  g.nbmap(bufnr, "<space>a", "<cmd>CodeActionMenu<CR>")
   g.nbmap(bufnr, "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 end
 

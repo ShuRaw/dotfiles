@@ -83,6 +83,10 @@ return require("packer").startup(
       -- Theme
       use {"navarasu/onedark.nvim", config = g.mcon("onedark", true)}
       use {"norcalli/nvim-colorizer.lua", config = g.mcon("colorizer")}
+
+      -- Experimental plugins
+      use {"weilbith/nvim-code-action-menu", cmd = "CodeActionMenu"}
+      use "lpinilla/vim-codepainter"
     end,
     config = {
       display = {
