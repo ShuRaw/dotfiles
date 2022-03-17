@@ -88,6 +88,7 @@ return require("packer").startup(
       use {"weilbith/nvim-code-action-menu", cmd = "CodeActionMenu"}
       use "lpinilla/vim-codepainter"
       use {"folke/which-key.nvim", config = g.mcon("which", false, "", "-key")}
+      use {"NTBBloodbath/rest.nvim", config = g.mcon("rest", false, "", "-nvim")}
     end,
     config = {
       display = {

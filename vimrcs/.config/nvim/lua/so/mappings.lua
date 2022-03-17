@@ -75,6 +75,16 @@ if wk_ok then
     l = {"<cmd>Telescope diagnostics<CR>", "Telescope errors"},
     q = {"<cmd>lua vim.diagnostic.setloclist()<CR>", "Loclist errors"}
   }
+  space_opts.r = {
+    name = "RestNvim",
+    r = {"<cmd>lua require('rest-nvim').run()<CR>", "Execute"},
+    f = {"<cmd>lua require('rest-nvim').run()<CR>", "Preview"},
+    l = {"<cmd>lua require('rest-nvim').run()<CR>", "Last"}
+  }
+  space_opts.p = {
+    name = "Packer",
+    s = {"<cmd>PackerSync<CR>", "Sync"}
+  }
   direct_opts.g = {
     name = "Goto",
     D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declarations"},

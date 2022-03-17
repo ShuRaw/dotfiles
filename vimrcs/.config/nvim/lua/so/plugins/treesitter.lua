@@ -1,6 +1,6 @@
 local opts = {}
 
-opts.ensure_installed = {"python", "lua", "javascript", "typescript", "tsx", "markdown", "json5", "scss"}
+opts.ensure_installed = {"python", "lua", "javascript", "typescript", "tsx", "markdown", "http", "json", "scss", "html"}
 opts.sync_install = false
 opts.highlight = {
   enable = true,
