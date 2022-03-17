@@ -17,6 +17,19 @@ ls.snippets = {
     ls.parser.parse_snippet("lf", "-- Defined in $TM_FILENAME\nlocal $1 = function($2)\n  $0\nend"),
     ls.parser.parse_snippet("mf", "local $1 = function($2)\n$0\nend"),
     s(
+      "u",
+      fmt(
+        'use {{"{}/{}", config = g.mcon("{}", false, "{}", "{}")}}',
+        {
+          i(1, "author"),
+          i(2, "repo"),
+          i(3, "config"),
+          i(4, "pre"),
+          i(5, "post")
+        }
+      )
+    ),
+    s(
       "req",
       fmt(
         "local {} = require('{}')",

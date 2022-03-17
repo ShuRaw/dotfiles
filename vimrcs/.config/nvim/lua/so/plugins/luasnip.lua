@@ -51,5 +51,3 @@ vim.keymap.set(
   end,
   {silent = true}
 )
-
-vim.keymap.set("n", "<space><space>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")

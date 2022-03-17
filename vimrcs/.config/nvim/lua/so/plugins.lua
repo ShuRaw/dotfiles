@@ -87,6 +87,7 @@ return require("packer").startup(
       -- Experimental plugins
       use {"weilbith/nvim-code-action-menu", cmd = "CodeActionMenu"}
       use "lpinilla/vim-codepainter"
+      use {"folke/which-key.nvim", config = g.mcon("which", false, "", "-key")}
     end,
     config = {
       display = {

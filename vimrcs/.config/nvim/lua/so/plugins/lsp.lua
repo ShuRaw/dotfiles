@@ -15,27 +15,9 @@ for _, name in pairs(servers) do
   end
 end
 
-g.nmap("<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
-g.nmap("<space>dj", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-g.nmap("<space>dk", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-g.nmap("<space>dl", "<cmd>Telescope diagnostics<CR>")
-g.nmap("<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
-
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-  g.nbmap(bufnr, "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-  g.nbmap(bufnr, "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
   g.nbmap(bufnr, "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-  g.nbmap(bufnr, "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-  g.nbmap(bufnr, "<space>s", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-  g.nbmap(bufnr, "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
-  g.nbmap(bufnr, "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
-  g.nbmap(bufnr, "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
-  g.nbmap(bufnr, "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-  g.nbmap(bufnr, "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-  g.nbmap(bufnr, "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-  g.nbmap(bufnr, "<space>a", "<cmd>CodeActionMenu<CR>")
-  g.nbmap(bufnr, "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 end
 
 lsp_installer.on_server_ready(

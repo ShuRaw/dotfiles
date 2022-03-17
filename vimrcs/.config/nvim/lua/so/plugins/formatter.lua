@@ -69,8 +69,6 @@ opts.filetype = {
   }
 }
 
-g.nmap("<space><space>f", "<cmd>Format<CR>")
-
 -- Setting for format on save
 vim.api.nvim_exec(
   [[
