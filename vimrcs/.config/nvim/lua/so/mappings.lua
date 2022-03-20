@@ -38,6 +38,7 @@ if wk_ok then
     n = {"<cmd>bnext<CR>", "Next buffer"},
     p = {"<cmd>bprevious<CR>", "Prev buffer"},
     l = {"<cmd>Telescope buffers<CR>", "List buffer"},
+    o = {"<cmd>only<CR>", "Close others"},
     s = {
       string.format('<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find(%s)<CR>', curr_buffer_opts),
       "Buffer search"
@@ -84,6 +85,21 @@ if wk_ok then
   space_opts.p = {
     name = "Packer",
     s = {"<cmd>PackerSync<CR>", "Sync"}
+  }
+  space_opts.h = {
+    name = "GitSigns",
+    n = {"<cmd>Gitsigns next_hunk<CR>", "Next hunk"},
+    p = {"<cmd>Gitsigns prev_hunk<CR>", "Prev hunk"},
+    P = {"<cmd>Gitsigns preview_hunk<CR>", "Preview hunk"},
+    s = {"<cmd>Gitsigns stage_hunk<CR>", "Stage hunk"},
+    S = {"<cmd>Gitsigns stage_buffer<CR>", "Stage buffer"},
+    r = {"<cmd>Gitsigns reset_hunk<CR>", "Reset hunk"},
+    R = {"<cmd>Gitsigns reset_buffer<CR>", "Reset buffer"},
+    u = {"<cmd>Gitsigns undo_stage_hunk<CR>", "Undo hunk"},
+    b = {"<cmd>Gitsigns blame_line full=true<CR>", "Blame"},
+    B = {"<cmd>Gitsigns toggle_current_line_blame<CR>", "Toggle blame"},
+    d = {"<cmd>Gitsigns diffthis<CR>", "Diff"},
+    D = {"<cmd>Gitsigns toggle_deleted<CR>", "Show deleted"}
   }
   direct_opts.g = {
     name = "Goto",

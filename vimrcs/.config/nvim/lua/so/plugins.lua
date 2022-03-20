@@ -89,6 +89,7 @@ return require("packer").startup(
       use "lpinilla/vim-codepainter"
       use {"folke/which-key.nvim", config = g.mcon("which", false, "", "-key")}
       use {"NTBBloodbath/rest.nvim", config = g.mcon("rest", false, "", "-nvim")}
+      use {"lewis6991/gitsigns.nvim", config = g.mcon("gitsigns")}
     end,
     config = {
       display = {
