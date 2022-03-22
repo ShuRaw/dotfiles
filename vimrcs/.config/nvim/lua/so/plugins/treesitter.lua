@@ -1,5 +1,4 @@
 local opts = {}
-local autocmd = vim.cmd
 
 opts.ensure_installed = {"python", "lua", "javascript", "typescript", "tsx", "markdown", "http", "json", "scss", "html"}
 opts.sync_install = false
@@ -23,7 +22,4 @@ opts.autotag = {
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-autocmd([[
-hilight rainbowcol1 guifg=#D70040
-]])
 return opts
