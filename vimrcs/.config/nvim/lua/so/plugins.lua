@@ -90,6 +90,10 @@ return require("packer").startup(
       use {"folke/which-key.nvim", config = g.mcon("which", false, "", "-key")}
       use {"NTBBloodbath/rest.nvim", config = g.mcon("rest", false, "", "-nvim")}
       use {"lewis6991/gitsigns.nvim", config = g.mcon("gitsigns")}
+      use {"mfussenegger/nvim-dap", config = g.mcon("dap", true)}
+      use {"theHamsta/nvim-dap-virtual-text", config = g.mcon("virtual", false, "nvim-dap-", "-text")}
+      use {"rcarriga/nvim-dap-ui", config = g.mcon("dapui")}
+      use {"rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins"}
     end,
     config = {
       display = {
