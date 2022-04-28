@@ -94,6 +94,7 @@ return require("packer").startup(
       use {"theHamsta/nvim-dap-virtual-text", config = g.mcon("virtual", false, "nvim-dap-", "-text")}
       use {"rcarriga/nvim-dap-ui", config = g.mcon("dapui")}
       use {"rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins"}
+      use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install"}
     end,
     config = {
       display = {
