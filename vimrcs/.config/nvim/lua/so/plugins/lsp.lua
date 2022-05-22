@@ -3,43 +3,71 @@ if not status_ok then
   return
 end
 
+local status_ok_lsp, lspconfig = pcall(require, "lspconfig")
+if not status_ok_lsp then
+  return
+end
+
 local g = require("so.globals")
 
-local servers = {"gopls", "pyright", "cssls", "cssmodules_ls", "tsserver", "sumneko_lua", "html"}
+local servers = {
+  "gopls",
+  "pyright",
+  "cssls",
+  "cssmodules_ls",
+  "tsserver",
+  "sumneko_lua",
+  "html",
+  "angularls",
+  "emmet_ls"
+}
 
-for _, name in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found and not server:is_installed() then
-    print("Installing " .. name)
-    server:install()
-  end
-end
+lsp_installer.setup(
+  {
+    ensure_installed = servers,
+    automatic_installation = true -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+  }
+)
 
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   g.nbmap(bufnr, "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 end
 
-lsp_installer.on_server_ready(
-  function(server)
-    local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-    local opts = {
-      capabilities = capabilities,
-      on_attach = on_attach
-    }
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-    if (server.name == "sumneko_lua") then
-      opts.settings = {
-        Lua = {
-          diagnostics = {
-            globals = {"vim", "use"}
-          }
+for _, server in ipairs(servers) do
+  local settings = {}
+  if (server == "sumneko_lua") then
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = {"vim", "use"}
         }
       }
-    end
-    server:setup(opts)
+    }
+  elseif (server == "cssls") then
+    settings = {
+      css = {
+        lint = {
+          unknownAtRules = "ignore"
+        }
+      },
+      scss = {
+        lint = {
+          unknownAtRules = "ignore"
+        }
+      }
+    }
   end
-)
+
+  -- It's important to have the object as this cause otherwise it doesn't map
+  lspconfig[server].setup {
+    on_attach= on_attach,
+    settings=settings,
+    capabilities=capabilities
+  }
+end
 
 vim.lsp.handlers["textDocument/hover"] =
   vim.lsp.with(

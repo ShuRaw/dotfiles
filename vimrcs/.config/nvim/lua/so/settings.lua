@@ -1,4 +1,3 @@
-vim.g.python3_host_prog = "~/dotfiles/.env/bin/python3"
 vim.g.vimwiki_list = {{path = "~/dotfiles/wiki/notes/", syntax = "markdown", ext = ".md"}}
 
 local set = vim.opt
@@ -46,3 +45,4 @@ set.shortmess:append "c"
 set.diffopt:append "iwhite"
 set.whichwrap:append "<,>,[,],h,l"
 set.iskeyword:append "-"
+set.laststatus = 3

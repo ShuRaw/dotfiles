@@ -17,11 +17,15 @@ if lspkind_ok then
       nvim_lsp = "[LSP]",
       nvim_lua = "[api]",
       path = "[path]",
-      luasnip = "[snip]",
+      vsnip = "[snip]",
       gh_issues = "[issues]",
       tn = "[TabNine]"
     }
   }
+end
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
 cmp.setup(
@@ -32,30 +36,48 @@ cmp.setup(
     formatting = {
       format = lspkind_config
     },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered()
+    },
     snippet = {
       expand = function(args)
-        require("luasnip").lsp_expand(args.body)
+        vim.fn["vsnip#anonymous"](args.body)
       end
     },
-    mapping = {
-      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
-      ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
-      ["<C-y>"] = cmp.config.disable,
-      ["<C-e>"] = cmp.mapping(
-        {
-          i = cmp.mapping.abort(),
-          c = cmp.mapping.close()
-        }
-      ),
-      ["<CR>"] = cmp.mapping.confirm({select = true})
-    },
+    mapping = cmp.mapping.preset.insert(
+      {
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({select = true}),
+        ["<Tab>"] = cmp.mapping(
+          function(fallback)
+            if vim.fn["vsnip#available"](1) == 1 then
+              feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            else
+              fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+            end
+          end,
+          {"i", "s"}
+        ),
+        ["<S-Tab>"] = cmp.mapping(
+          function()
+            if vim.fn["vsnip#jumpable"](-1) == 1 then
+              feedkey("<Plug>(vsnip-jump-prev)", "")
+            end
+          end,
+          {"i", "s"}
+        )
+      }
+    ),
     sources = cmp.config.sources(
       {
-        {name = "nvim_lua"},
         {name = "nvim_lsp"},
-        {name = "path", max_item_count = 3},
-        {name = "luasnip", max_item_count = 3},
+        {name = "nvim_lua"},
+        {name = "vsnip"},
+        {name = "path", max_item_count = 5},
         {name = "buffer", keyword_length = 5, max_item_count = 3}
       },
       {
@@ -63,10 +85,7 @@ cmp.setup(
         {name = "tags"},
         {name = "rg"}
       }
-    ),
-    experimental = {
-      ghost_text = true
-    }
+    )
   }
 )
 
@@ -84,6 +103,7 @@ cmp.setup.filetype(
 cmp.setup.cmdline(
   "/",
   {
+    mapping = cmp.mapping.preset.cmdline(),
     sources = {
       {name = "buffer"}
     }
@@ -93,6 +113,7 @@ cmp.setup.cmdline(
 cmp.setup.cmdline(
   ":",
   {
+    mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources(
       {
         {name = "path"}

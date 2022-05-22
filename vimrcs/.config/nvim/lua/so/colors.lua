@@ -22,7 +22,8 @@ highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 ]]
 )
 
--- Color setting for Rainbow
+-- Color setting for Rainbow and removing thick window border
 autocmd([[
 highlight! rainbowcol1 guifg=#D2042D
+highlight! WinSeparator guibg=None
 ]])

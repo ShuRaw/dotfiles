@@ -27,6 +27,7 @@ local wk_ok, wk = pcall(require, "which-key")
 if wk_ok then
   local space_opts = {}
   local direct_opts = {}
+  local v_space_opts = {}
   local curr_buffer_opts = '{ sorting_strategy = "ascending", layout_config = { prompt_position = "top" } }'
   space_opts.s = {
     name = "Split",
@@ -101,6 +102,16 @@ if wk_ok then
     d = {"<cmd>Gitsigns diffthis<CR>", "Diff"},
     D = {"<cmd>Gitsigns toggle_deleted<CR>", "Show deleted"}
   }
+  space_opts.v = {
+    o = "<cmd>VsnipOpen<CR>",
+    e = "<cmd>VsnipOpenEdit<CR>",
+    s = {"<Plug>(vsnip-select-text)", "Select"},
+    c = {"<Plug>(vsnip-cut-text)", "Cut"}
+  }
+  v_space_opts.v = {
+    s = {"<Plug>(vsnip-select-text)", "Select"},
+    c = {"<Plug>(vsnip-cut-text)", "Cut"}
+  }
   direct_opts.g = {
     name = "Goto",
     D = {"<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto declarations"},
@@ -110,6 +121,7 @@ if wk_ok then
   }
 
   wk.register(space_opts, {prefix = "<space>"})
+  wk.register(v_space_opts, {prefix = "<space>", mode = "v"})
   wk.register(direct_opts)
 else
   g.nmap("<space>o", "<cmd>only<CR>")

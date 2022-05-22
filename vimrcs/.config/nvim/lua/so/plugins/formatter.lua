@@ -79,14 +79,14 @@ opts.filetype = {
 }
 
 -- Setting for format on save
-vim.api.nvim_exec(
-  [[
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost *.js,*.rs,*.lua,*.py,*.ts,*.tsx,*.json,*.scss FormatWrite
-augroup END
-]],
-  true
-)
+-- vim.api.nvim_exec(
+--   [[
+-- augroup FormatAutogroup
+--   autocmd!
+--   autocmd BufWritePost *.js,*.rs,*.lua,*.py,*.ts,*.tsx,*.json,*.scss FormatWrite
+-- augroup END
+-- ]],
+--   true
+-- )
 
 return opts

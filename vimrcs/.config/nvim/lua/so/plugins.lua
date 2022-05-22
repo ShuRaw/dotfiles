@@ -49,19 +49,25 @@ return require("packer").startup(
       use {"folke/twilight.nvim", config = g.mcon("twilight")}
 
       -- LSP related setup
-      use {"williamboman/nvim-lsp-installer", requires = {"neovim/nvim-lspconfig"}, config = g.mcon("lsp", true)}
+      use {
+        "williamboman/nvim-lsp-installer",
+        {
+          "neovim/nvim-lspconfig",
+          config = g.mcon("lsp", true)
+        }
+      }
 
       -- Completion related setup
       use {"hrsh7th/nvim-cmp", requires = {"onsails/lspkind-nvim"}, config = g.mcon("cmp", true)}
       use {"windwp/nvim-autopairs", config = g.mcon("autopairs", true)}
-      use {"L3MON4D3/LuaSnip", config = g.mcon("luasnip", true)}
+      use "hrsh7th/cmp-vsnip"
+      use "hrsh7th/vim-vsnip"
       use "mattn/emmet-vim"
       use "hrsh7th/cmp-nvim-lsp"
       use "hrsh7th/cmp-nvim-lua"
       use "hrsh7th/cmp-buffer"
       use "hrsh7th/cmp-path"
       use "hrsh7th/cmp-cmdline"
-      use "saadparwaiz1/cmp_luasnip"
 
       -- Formatting related setup
       use {"mhartington/formatter.nvim", config = g.mcon("formatter")}
@@ -94,7 +100,7 @@ return require("packer").startup(
       use {"theHamsta/nvim-dap-virtual-text", config = g.mcon("virtual", false, "nvim-dap-", "-text")}
       use {"rcarriga/nvim-dap-ui", config = g.mcon("dapui")}
       use {"rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins"}
-      use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install"}
+      use {"ShuRaw/markdown-preview.nvim", run = "cd app && yarn install"}
     end,
     config = {
       display = {
