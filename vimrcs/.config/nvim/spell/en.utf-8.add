@@ -1,0 +1,12 @@
+local
+cursorcolumn
+cursorline
+relativenumber
+showcmd
+pcall
+crosshair
+lua
+cmd
+nvim
+nmap
+imap

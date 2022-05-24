@@ -1,20 +1,22 @@
 vim.g.vimwiki_list = {{path = "~/dotfiles/wiki/notes/", syntax = "markdown", ext = ".md"}}
+vim.g.bufferline = {icon_pinned = "車"}
+-- local group = vim.api.nvim_create_augroup("Handle Folds", {clear = true})
+-- vim.api.nvim_create_autocmd("BufEnter", {command = "normal zx", group = group})
 
 local set = vim.opt
 
-set.number = true
-set.relativenumber = true
+set.number = false
+set.relativenumber = false
 set.colorcolumn = {"81", "121"}
 set.textwidth = 0
 set.wrap = false
 set.linebreak = true
-set.showcmd = true
+set.showcmd = false
 set.list = true
 set.listchars = {tab = "▸ ", trail = "·"}
 set.hidden = true
 set.splitbelow = true
 set.splitright = true
-set.diffopt = set.diffopt + "vertical"
 set.mouse = "a"
 set.backup = false
 set.cmdheight = 2
@@ -37,12 +39,14 @@ set.swapfile = false -- creates a swapfile
 set.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 set.undofile = true
 set.undodir = ".vim/undotree" -- enable persistent undo
-set.cursorline = true -- highlight the current line
-set.numberwidth = 4 -- set number column width to 2 {default 4}
+set.cursorline = false -- highlight the current line
+set.numberwidth = 2 -- set number column width to 2 {default 4}
 set.scrolloff = 8 -- is one of my fav
 set.sidescrolloff = 8
-set.shortmess:append "c"
+set.diffopt:append "vertical"
 set.diffopt:append "iwhite"
+set.shortmess:append "c"
 set.whichwrap:append "<,>,[,],h,l"
 set.iskeyword:append "-"
 set.laststatus = 3
+set.lazyredraw = true

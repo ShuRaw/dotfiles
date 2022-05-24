@@ -22,39 +22,114 @@ g.nmap("<down>", "<c-w>-")
 g.vmap(">", ">gv")
 g.vmap("<", "<gv")
 
+local status_tele_builtin, telescope = pcall(require, "telescope.builtin")
+if not status_tele_builtin then
+  return
+end
+
+local current_buffer_fuzzy_find_wrapper = function()
+  local curr_buffer_opts = {sorting_strategy = "ascending", layout_config = {prompt_position = "top"}}
+  if status_tele_builtin then
+    telescope.current_buffer_fuzzy_find(curr_buffer_opts)
+  end
+end
+
+local git_files_wrapper = function()
+  if status_tele_builtin then
+    telescope.git_files({})
+  end
+end
+
+local find_files_wrapper = function()
+  if status_tele_builtin then
+    telescope.find_files({search_dirs = {"./vimrcs/.config", "./"}})
+  end
+end
+
+local live_grep_wrapper = function()
+  if status_tele_builtin then
+    telescope.live_grep()
+  end
+end
+
+local grep_string_wrapper = function()
+  if status_tele_builtin then
+    local search_string = ""
+    vim.ui.input(
+      {prompt = "Search: "},
+      function(input)
+        search_string = input
+      end
+    )
+    telescope.grep_string({search = search_string, search_dirs = {"./vimrcs/.config", "./"}})
+  end
+end
+
+local opts = vim.opt
+
+local toggle_cursor_line = function ()
+  opts.cursorline = not opts.cursorline:get()
+end
+
+local toggle_crosshair = function ()
+  opts.cursorline = not opts.cursorline:get()
+  opts.cursorcolumn = not opts.cursorcolumn:get()
+end
+
+local toggle_numbers = function ()
+  opts.number = not opts.number:get()
+  opts.relativenumber = not opts.relativenumber:get()
+end
+
+local toggle_command = function ()
+  opts.showcmd = not opts.showcmd:get()
+end
+
 local wk_ok, wk = pcall(require, "which-key")
 
 if wk_ok then
   local space_opts = {}
   local direct_opts = {}
   local v_space_opts = {}
-  local curr_buffer_opts = '{ sorting_strategy = "ascending", layout_config = { prompt_position = "top" } }'
   space_opts.s = {
     name = "Split",
     v = {"<cmd>vsp<CR>", "Split vertically"},
     h = {"<cmd>sp<CR>", "Split horizontally"}
   }
+  space_opts.n = {
+    name = "Navigation",
+    c = {toggle_cursor_line, "Toggle cursor line"},
+    C = {toggle_crosshair, "Toggle crosshair"},
+    n = {toggle_numbers, "Toggle numbers"},
+    x = {toggle_command, "Toggle command"}
+  }
   space_opts.b = {
     name = "Buffer",
-    n = {"<cmd>bnext<CR>", "Next buffer"},
-    p = {"<cmd>bprevious<CR>", "Prev buffer"},
-    l = {"<cmd>Telescope buffers<CR>", "List buffer"},
-    o = {"<cmd>only<CR>", "Close others"},
     s = {
-      string.format('<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find(%s)<CR>', curr_buffer_opts),
+      current_buffer_fuzzy_find_wrapper,
       "Buffer search"
-    }
+    },
+    p = {"<cmd>BufferPrevious<CR>", "Next buffer"},
+    n = {"<cmd>BufferNext<CR>", "Previous buffer"},
+    j = {"<cmd>BufferMovePrevious<CR>", "Move left"},
+    k = {"<cmd>BufferMoveNext<CR>", "Move right"},
+    x = {"<cmd>BufferClose<CR>", "Close buffer"},
+    X = {"<cmd>BufferCloseAllButCurrent<CR>", "Close Other buffers"},
+    m = {"<cmd>BufferPick<CR>", "Pick mode"},
+    M = {"<cmd>BufferPin<CR>", "Pin mode"},
+    b = {"<cmd>BufferOrderByBufferNumber<CR>", "Orderby number"},
+    d = {"<cmd>BufferOrderByDirectory<CR>", "Orderby directory"},
+    l = {"<cmd>BufferOrderByLanguage<CR>", "Orderby language"}
   }
   space_opts.f = {
     name = "Files",
-    g = {"<cmd>Telescope git_files<CR>", "Git files"},
-    r = {"<cmd>Telescope live_grep<CR>", "Live grep"},
-    s = {":Telescope grep_string search=", "Search"},
-    f = {"<cmd>Telescope find_files<CR>", "Files"},
+    g = {git_files_wrapper, "Git files"},
+    r = {live_grep_wrapper, "Live grep"},
+    s = {grep_string_wrapper, "Search"},
+    f = {find_files_wrapper, "Files"},
     c = {"<cmd>Telescope git_commits<CR>", "Commit search"},
     x = {"<cmd>Format<CR>", "Format file"},
-    e = {"<cmd>NvimTreeToggle<CR>", "File explorer"},
-    z = {"<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>", "Update Snippets"}
+    e = {"<cmd>NvimTreeToggle<CR>", "File explorer"}
   }
   space_opts.l = {
     name = "Lsp",
@@ -103,12 +178,14 @@ if wk_ok then
     D = {"<cmd>Gitsigns toggle_deleted<CR>", "Show deleted"}
   }
   space_opts.v = {
-    o = "<cmd>VsnipOpen<CR>",
-    e = "<cmd>VsnipOpenEdit<CR>",
+    name = "Vsnips",
+    o = {"<cmd>VsnipOpen<CR>", "Open Snippets"},
+    e = {"<cmd>VsnipOpenEdit<CR>", "Edit Snippets"},
     s = {"<Plug>(vsnip-select-text)", "Select"},
     c = {"<Plug>(vsnip-cut-text)", "Cut"}
   }
   v_space_opts.v = {
+    name = "Vsnips",
     s = {"<Plug>(vsnip-select-text)", "Select"},
     c = {"<Plug>(vsnip-cut-text)", "Cut"}
   }

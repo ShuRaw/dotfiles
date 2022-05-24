@@ -81,7 +81,7 @@ return require("packer").startup(
 
       -- Status line related setup
       use {"nvim-lualine/lualine.nvim", cofig = g.mcon("lualine")}
-      use {"kdheepak/tabline.nvim", config = g.mcon("tabline")}
+      use {"romgrk/barbar.nvim"}
 
       -- Indent visualizer
       use {"lukas-reineke/indent-blankline.nvim", config = g.mcon("indent_blankline")}
@@ -101,6 +101,7 @@ return require("packer").startup(
       use {"rcarriga/nvim-dap-ui", config = g.mcon("dapui")}
       use {"rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins"}
       use {"ShuRaw/markdown-preview.nvim", run = "cd app && yarn install"}
+      use { 'lewis6991/spellsitter.nvim', config = g.mcon('spellsitter')}
     end,
     config = {
       display = {
