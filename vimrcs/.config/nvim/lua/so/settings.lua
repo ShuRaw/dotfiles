@@ -1,7 +1,5 @@
 vim.g.vimwiki_list = {{path = "~/dotfiles/wiki/notes/", syntax = "markdown", ext = ".md"}}
 vim.g.bufferline = {icon_pinned = "車"}
--- local group = vim.api.nvim_create_augroup("Handle Folds", {clear = true})
--- vim.api.nvim_create_autocmd("BufEnter", {command = "normal zx", group = group})
 
 local set = vim.opt
 
@@ -47,6 +45,35 @@ set.diffopt:append "vertical"
 set.diffopt:append "iwhite"
 set.shortmess:append "c"
 set.whichwrap:append "<,>,[,],h,l"
-set.iskeyword:append "-"
+-- set.iskeyword:append "-"
 set.laststatus = 3
 set.lazyredraw = true
+
+-- Fixed for fold update when opening files from telescope
+local group = vim.api.nvim_create_augroup("Handle Folds", {clear = true})
+vim.api.nvim_create_autocmd(
+  "BufEnter",
+  {command = "normal zx", group = group, pattern = {"*.js", "*.ts", "*.py", "*.jsx", "*.tsx", "*.lua"}}
+)
+
+-- Fixed for handling File Tree offset area
+local status_nvt, nvt = pcall(require, "nvim-tree.events")
+if not status_nvt then
+  return
+end
+local status_bufl, bufl = pcall(require, "bufferline.state")
+if not status_bufl then
+  return
+end
+
+nvt.on_tree_open(
+  function()
+    bufl.set_offset(31, "EXPLORER")
+  end
+)
+
+nvt.on_tree_close(
+  function()
+    bufl.set_offset(0)
+  end
+)

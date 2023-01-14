@@ -19,7 +19,6 @@ local servers = {
   "sumneko_lua",
   "html",
   "angularls",
-  "emmet_ls"
 }
 
 lsp_installer.setup(
@@ -34,7 +33,7 @@ local on_attach = function(_, bufnr)
   g.nbmap(bufnr, "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 end
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for _, server in ipairs(servers) do
   local settings = {}
@@ -63,9 +62,9 @@ for _, server in ipairs(servers) do
 
   -- It's important to have the object as this cause otherwise it doesn't map
   lspconfig[server].setup {
-    on_attach= on_attach,
-    settings=settings,
-    capabilities=capabilities
+    on_attach = on_attach,
+    settings = settings,
+    capabilities = capabilities
   }
 end
 

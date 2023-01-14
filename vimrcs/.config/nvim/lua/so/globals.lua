@@ -52,7 +52,9 @@ local pbug = function(str)
 end
 
 local ptab = function(str)
-  print(vim.inspect(str))
+  if (debug) then
+    print(vim.inspect(str))
+  end
 end
 
 local mcon = function(plug, hasFullConfig, pre, post)
@@ -65,14 +67,15 @@ local mcon = function(plug, hasFullConfig, pre, post)
   if (post) then
     lplug = lplug .. post
   end
+  pbug("Requiring: " .. lplug)
+  pbug("Loading: " .. plug)
 
   if not hasFullConfig then
     local plug_ok, rplug = pcall(require, lplug)
     local splug_ok, splug = pcall(require, "so.plugins." .. plug)
-    pbug("Configuring " .. lplug)
 
     if not plug_ok then
-      pbug("Failed to require " .. plug)
+      pbug("Failed to require " .. lplug)
       return
     end
 
@@ -81,6 +84,7 @@ local mcon = function(plug, hasFullConfig, pre, post)
       rplug.setup({})
     else
       pbug("Loading custom setup for " .. plug)
+      ptab(splug)
       rplug.setup(splug)
     end
   else

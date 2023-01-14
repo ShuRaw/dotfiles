@@ -99,9 +99,27 @@ return require("packer").startup(
       use {"mfussenegger/nvim-dap", config = g.mcon("dap", true)}
       use {"theHamsta/nvim-dap-virtual-text", config = g.mcon("virtual", false, "nvim-dap-", "-text")}
       use {"rcarriga/nvim-dap-ui", config = g.mcon("dapui")}
-      use {"rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins"}
+
+      -- Debugger plugins
+      use {
+        "nvim-neotest/neotest",
+        requires = {
+          "nvim-lua/plenary.nvim",
+          "nvim-treesitter/nvim-treesitter",
+          "antoinemadec/FixCursorHold.nvim",
+          "haydenmeade/neotest-jest",
+          "nvim-neotest/neotest-python",
+          "nvim-neotest/neotest-go",
+          "nvim-neotest/neotest-plenary"
+        },
+        config = g.mcon("neotest")
+      }
       use {"ShuRaw/markdown-preview.nvim", run = "cd app && yarn install"}
-      use { 'lewis6991/spellsitter.nvim', config = g.mcon('spellsitter')}
+
+      -- use {"lewis6991/spellsitter.nvim", config = g.mcon("spellsitter")}
+      -- use {"nvim-treesitter/playground"}
+      -- use {"antonk52/bad-practices.nvim", config = g.mcon('bad', false, "", "_practices.")}
+      -- use {"rcarriga/nvim-notify", config = g.mcon('notify')}
     end,
     config = {
       display = {
