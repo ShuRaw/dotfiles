@@ -1,16 +1,8 @@
 alias ls='ls --color=auto'
 alias u=ultralist
 alias mux=tmuxinator
-alias vim=nvim
 alias del='~/dotfiles/sybox-config/del'
+alias setup='~/dotfiles/sybox-config/setup'
 alias up='source ~/.zshrc'
 alias zshrc='$EDITOR ~/.zshrc'
 alias vimrc='$EDITOR ~/.vimrc'
-alias jupyter='docker run --gpus all --rm -e GRANT_SUDO=yes --user=root --name jupyter -v ~/Data/datascience:/home/jovyan/work -p 8888:8888 jupyter/tensorflow-notebook'
-alias kafka='docker run --rm -d --name kafka -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=172.17.0.1 --env ADVERTISED_PORT=9092 spotify/kafka'
-alias kafkad='docker stop kafka'
-alias redisd='docker stop redis'
-alias redis='docker run --rm -d --name redis -p 6379:6379 -v ~/Data/redis:/data redislabs/rejson'
-alias dual='xrandr --output HDMI-1-2 --mode 1920x1080 --rate 144.0 --auto --left-of eDP-1-1'
-alias snap='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
-alias setuppy='pip install pylint neovim jedi black'

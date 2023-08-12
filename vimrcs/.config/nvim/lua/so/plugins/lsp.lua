@@ -11,7 +11,6 @@ end
 local g = require("so.globals")
 
 local servers = {
-  "gopls",
   "pyright",
   "cssls",
   "cssmodules_ls",
@@ -19,7 +18,6 @@ local servers = {
   "sumneko_lua",
   "html",
   "angularls",
-  "emmet_ls"
 }
 
 lsp_installer.setup(
@@ -34,7 +32,7 @@ local on_attach = function(_, bufnr)
   g.nbmap(bufnr, "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 end
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 for _, server in ipairs(servers) do
   local settings = {}

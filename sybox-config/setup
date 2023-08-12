@@ -1,0 +1,12 @@
+mkdir src
+cd src
+mkdir components
+cd components
+mkdir Layout
+cd ..
+mkdir hooks
+mkdir contexts
+mkdir constants
+mkdir utils
+mkdir navigation
+mkdir screens

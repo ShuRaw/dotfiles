@@ -108,6 +108,11 @@ if wk_ok then
     s = {"<Plug>(vsnip-select-text)", "Select"},
     c = {"<Plug>(vsnip-cut-text)", "Cut"}
   }
+  space_opts.q = {
+    name = "Quickfix",
+    k = {"<cmd>cprev<CR>", "Prev list item"},
+    j = {"<cmd>cnext<CR>", "Next list item"},
+  }
   v_space_opts.v = {
     s = {"<Plug>(vsnip-select-text)", "Select"},
     c = {"<Plug>(vsnip-cut-text)", "Cut"}
