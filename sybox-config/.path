@@ -12,9 +12,12 @@ if [ -f '/Users/shubhamrawat/Downloads/google-cloud-sdk/completion.zsh.inc' ]; t
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.15.jdk/Contents/Home
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$PATH:$HOME/Installer/flutter/bin"
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 export EDITOR=nvim
+export CLOUDSDK_PYTHON=/opt/homebrew/bin/python3.11
+export PATH="$PATH:/Users/shubhamrawat/Downloads/Visual Studio Code.app/Contents/Resources/app/bin"

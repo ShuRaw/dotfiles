@@ -1,0 +1,17 @@
+cd src
+mkdir components
+cd components
+mkdir layouts
+mkdir shared
+mkdir App
+touch Base.module.scss
+touch Base.tsx
+touch index.scss
+cd ..
+mkdir hooks
+mkdir contexts
+mkdir constants
+mkdir utils
+mkdir routes
+mkdir redux
+mkdir styles

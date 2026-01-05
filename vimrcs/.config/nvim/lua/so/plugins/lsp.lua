@@ -15,7 +15,7 @@ local servers = {
   "cssls",
   "cssmodules_ls",
   "tsserver",
-  "sumneko_lua",
+  "lua_ls",
   "html",
   "angularls",
 }
@@ -36,7 +36,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 
 for _, server in ipairs(servers) do
   local settings = {}
-  if (server == "sumneko_lua") then
+  if (server == "lua_ls") then
     settings = {
       Lua = {
         diagnostics = {

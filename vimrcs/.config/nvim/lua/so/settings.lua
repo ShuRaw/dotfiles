@@ -46,3 +46,4 @@ set.diffopt:append "iwhite"
 set.whichwrap:append "<,>,[,],h,l"
 set.iskeyword:append "-"
 set.laststatus = 3
+set.termguicolors = true

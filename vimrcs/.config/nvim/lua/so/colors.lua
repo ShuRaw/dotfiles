@@ -27,3 +27,5 @@ autocmd([[
 highlight! rainbowcol1 guifg=#D2042D
 highlight! WinSeparator guibg=None
 ]])
+
+vim.cmd.colorscheme "catppuccin-mocha"
